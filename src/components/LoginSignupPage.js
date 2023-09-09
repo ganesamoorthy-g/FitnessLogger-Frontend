@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ForgotPassword from './ForgotPassword';
+import './Login.css';
 
 const LoginSignupPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,23 +17,27 @@ const LoginSignupPage = () => {
     try {
       if (isLogin) {
         // Perform login logic
-        const response = await axios.post('http://localhost:5000/auth/Login', {
+        const response = await axios.post('http://localhost:5000/auth/login', {
           email,
           password,
         });
         const responseData = response.data;
 
-        if (responseData.message === 'login success') {
+        if (responseData.message === 'Login success') {
           // Handle successful login
           alert('Logged in successfully');
+
+          // Redirect to the "allexcercisepage" after successful login
+          navigate('/allexcercisepage');
         } else {
           alert('Login failed: ' + responseData.message);
         }
       } else {
         // Perform signup logic
-        const response = await axios.post('http://localhost:5000/auth/Register', {
+        const response = await axios.post('http://localhost:5000/auth/register', {
           email,
           password,
+          username, // Add username to the signup data
         });
         const responseData = response.data;
 
@@ -52,6 +59,15 @@ const LoginSignupPage = () => {
       <div className="form-container">
         <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
         <form onSubmit={handleSubmit}>
+          {isLogin || (
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          )}
           <input
             type="email"
             placeholder="Email"
@@ -72,6 +88,11 @@ const LoginSignupPage = () => {
           {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Log in'}
         </p>
         <Link to="/forgot-password">Forgot Password?</Link>
+       
+        <div className="google-icon">
+  <i className="fab fa-google"></i> <strong>Sign in with Google</strong>
+</div>
+
         <Routes>
           <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>

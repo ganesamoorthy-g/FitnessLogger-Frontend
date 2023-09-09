@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
+import './Login.css';
 
 function ResetPassword() {
   const [password, setPassword] = useState('');
@@ -19,7 +20,7 @@ function ResetPassword() {
     });
 
     if (response.data.message === 'Password reset successfully') {
-      navigate('/', { replace: true }); 
+      navigate('/allexcercisepage', { replace: true }); 
     } else {
       console.log('Password reset failed');
     }
