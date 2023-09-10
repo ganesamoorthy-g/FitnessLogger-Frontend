@@ -23,10 +23,10 @@ const LoginSignupPage = () => {
         });
         const responseData = response.data;
 
-        if (responseData.message === 'Login success') {
+        if (responseData.message === 'login success') {
           // Handle successful login
           alert('Logged in successfully');
-
+  
           // Redirect to the "allexcercisepage" after successful login
           navigate('/allexcercisepage');
         } else {
@@ -57,6 +57,9 @@ const LoginSignupPage = () => {
   return (
     <div className="login-signup-container">
       <div className="form-container">
+      <h1 className="login-head-title">
+          <i className="fa-sharp fa-solid fa-heart-circle-bolt"></i>Fitness Logger
+        </h1>
         <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
         <form onSubmit={handleSubmit}>
           {isLogin || (

@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
 
-
 function ForgotPassword() {
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
@@ -11,13 +10,17 @@ function ForgotPassword() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
+    //Backend Api 
       .post('http://localhost:5000/auth/forgot-password', { email })
       .then((res) => {
         if (res.data.status === 'Password reset link sent successfully') {
           navigate('/reset-password');
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+       
+        // console.log(err);
+      });
   };
 
   return (

@@ -47,15 +47,15 @@ const Cardio = () => {
             setMessage('');
           }, 3000);
         } else {
-          console.error('Something went wrong');
+          // console.error('Something went wrong');
           setMessage('Something else went wrong');
         }
       } catch (err) {
-        console.error(err);
+        // console.error(err);
         setMessage('Something catch went wrong');
       }
     }
-
+//what are the title of data will create in form 
     setCardioForm({
       name: '',
       distance: '',

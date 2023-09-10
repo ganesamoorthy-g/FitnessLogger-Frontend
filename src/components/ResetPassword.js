@@ -8,21 +8,19 @@ function ResetPassword() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
-  const [state ] = useSearchParams();
-
- 
+  const [state] = useSearchParams();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    //Backend Api for JWT token generate process
     const response = await axios.post(`http://localhost:5000/auth/reset-password?id=${state.get("id")}&token=${state.get("token")}`, {
       password,
     });
 
     if (response.data.message === 'Password reset successfully') {
-      navigate('/allexcercisepage', { replace: true }); 
+      navigate('/allexcercisepage', { replace: true });
     } else {
-      console.log('Password reset failed');
+      // console.log('Password reset failed');
     }
   };
 

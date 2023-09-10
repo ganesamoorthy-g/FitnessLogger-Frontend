@@ -15,12 +15,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 /* --------------------------------- 1. home page--------------------------------- */
 
 .homepage {
   background-image: url("./images/run.jpg");
   background-size: cover;
-  background-position: right center; /* Adjust the background position */
+  background-position: right center;
+  /* Adjust the background position */
   background-repeat: no-repeat;
   min-height: 100vh;
   width: 100%;
@@ -31,16 +33,18 @@ code {
 .home {
   position: absolute;
   bottom: 0%;
-  right: 0; /* Adjust the 'right' property to move the content to the right side */
+  right: 0;
+  /* Adjust the 'right' property to move the content to the right side */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   color: whitesmoke;
-  text-align: right; /* Set text alignment to right */
+  text-align: right;
+  /* Set text alignment to right */
 }
 
 .home-item {
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .home-title {
@@ -63,25 +67,26 @@ code {
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  margin-top: 10px; /* Add margin to the top to separate from other elements */
+  margin-top: 10px;
+  /* Add margin to the top to separate from other elements */
 }
-
-
-
-
-
 
 
 .head-title {
   font-size: 2rem;
   font-weight: bold;
-  color: rgb(205, 247, 137); /* You can adjust the color to your preference */
+  color: rgb(205, 247, 137);
+  /* You can adjust the color to your preference */
   text-align: justify;
   margin-bottom: 2px;
-  letter-spacing: 2px; /* Add letter spacing for a bold look */
-  display: flex; /* Use flexbox */
-  align-items: self-end; /* Center vertically within the container */
-  justify-content: first baseline; /* Move to the left within the container */
+  letter-spacing: 2px;
+  /* Add letter spacing for a bold look */
+  display: flex;
+  /* Use flexbox */
+  align-items: self-end;
+  /* Center vertically within the container */
+  justify-content: first baseline;
+  /* Move to the left within the container */
 }
 
 /* Keyframes for the animation */
@@ -90,6 +95,7 @@ code {
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -97,36 +103,42 @@ code {
 }
 
 .home-title,
-.home-text
- {
-  margin-bottom: 10px; /* Add margin to create separation between rows */
+.home-text {
+  margin-bottom: 10px;
+  /* Add margin to create separation between rows */
 
   opacity: 0;
   animation: fadeIn 0.5s ease-in-out forwards;
-  width: 100%; /* Ensure each element takes up the full width */
-  display: block; /* Make them block-level elements */
-  margin: 10px auto; /* Center them vertically and horizontally */
+  width: 100%;
+  /* Ensure each element takes up the full width */
+  display: block;
+  /* Make them block-level elements */
+  margin: 10px auto;
+  /* Center them vertically and horizontally */
 }
 
 .home-title {
-  animation-delay: 0.5s; /* Delay for the home title */
+  animation-delay: 0.5s;
+  /* Delay for the home title */
 }
 
 .home-text {
-  animation-delay: 1s; /* Delay for the home text */
+  animation-delay: 1s;
+  /* Delay for the home text */
 }
+
 .home-btn {
-  animation-delay: 1.5s; /* Delay for the home button */
+  animation-delay: 1.5s;
+  /* Delay for the home button */
 }
 
 
-/* ------------------------------- 6. aerobic,cardio and resistance form page--------------------------------*/
+/* ------------------------------- 2. aerobic,cardio and resistance form page--------------------------------*/
 .exercise-form-icon {
   height: 50px;
   width: 50px;
   margin-bottom: 20px;
 }
-
 
 
 /* Add this rule to style all text elements within the component */
@@ -136,24 +148,16 @@ code {
   color: white;
 } */
 
-
-
-
 .aerobic,
 .single-aerobic {
   background-image: url("./images/background7.jpg");
-  background-size: 100% auto; /* Increase the width by adjusting the percentage */
+  background-size: 100% auto;
+  /* Increase the width by adjusting the percentage */
   background-position: left;
   background-repeat: no-repeat;
   height: 100vh;
   color: white;
 }
-
-
-
-
-
-
 
 .cardio,
 .single-cardio {
@@ -175,13 +179,14 @@ code {
   height: 100vh;
   color: white;
 }
+
 .aerobic-form,
 .cardio-form,
 .resistance-form,
 .aerobic-div,
 .cardio-div,
 .resistance-div {
- 
+
   border-radius: 10px;
   padding: 20px;
   width: 290px;
@@ -189,6 +194,7 @@ code {
   backdrop-filter: blur(30px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
+
 .aerobic-form label,
 .cardio-form label,
 .resistance-form label {
@@ -196,6 +202,7 @@ code {
   font-weight: 600;
   color: var(--main-color);
 }
+
 .aerobic-form input,
 .cardio-form input,
 .resistance-form input {
@@ -214,17 +221,19 @@ code {
 
 .message {
   font-weight: bold;
-  color:white;
+  color: white;
   margin-top: 20px;
   text-align: center;
 }
+
 .aerobic-form input::placeholder,
 .cardio-form input::placeholder,
 .resistance-form input::placeholder {
-  color:white; /* Change the color to your desired placeholder color */
+  color: white;
+  /* Change the color to your desired placeholder color */
 }
 
-/* ---------------------------------7.single exercise page--------------------------------- */
+/* ---------------------------------3.single exercise page--------------------------------- */
 .aerobic-div,
 .cardio-div,
 .resistance-div {
@@ -276,7 +285,7 @@ code {
 
 .react-confirm-alert-overlay {
   /* background-color: rgba(255, 255, 255, 0); */
-    background-color:white;
+  background-color: white;
 }
 
 .react-confirm-alert-body {
@@ -296,18 +305,20 @@ code {
   font-weight: bold;
 }
 
-.react-confirm-alert-button-group button{
+.react-confirm-alert-button-group button {
   font-weight: bold;
   font-size: 14px;
 }
+
 .react-confirm-alert-button-group button:last-child {
   background-color: red;
 }
 
-/* --------------------------------- 5.exercise page---------------------------------   */
+/* --------------------------------- 4.exercise page---------------------------------   */
 .exercise-icon {
   height: 40px;
 }
+
 .aerobic-btn,
 .cardio-btn,
 .resistance-btn {
@@ -322,33 +333,41 @@ code {
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   transition: all 150ms ease-in-out;
 }
+
 .cardio-btn {
-  background-color: #a8e328; 
-  color: white; 
+  background-color: #a8e328;
+  color: white;
 }
+
 .resistance-btn {
-  background-color: #d884f2; /* Change this to your desired color */
-  color: white; /* Text color for the button */
+  background-color: #d884f2;
+  /* Change this to your desired color */
+  color: white;
+  /* Text color for the button */
 }
+
 .aerobic-btn {
-  background-color: #2eaae8; 
-  color: white; 
+  background-color: #2eaae8;
+  color: black;
 }
-/* ...........................custom Navbar........................................... */
+
+/* ...........................5. custom Navbar........................................... */
 /* Custom Navbar styles */
 .custom-navbar {
-  background-color: rgba(107, 152, 250, 0.5); 
+  background-color: rgba(107, 152, 250, 0.5);
 }
 
 /* Custom Navbar link styles */
 .custom-navbar .nav-link {
-  color: #FFFFFF; /* Change this to your desired text color */
+  color: #FFFFFF;
+  /* Change this to your desired text color */
   font-weight: bold;
 }
 
 /* Custom Navbar link styles on hover */
 .custom-navbar .nav-link:hover {
-  color: #33FF57; /* Change this to your desired hover text color */
+  color: #33FF57;
+  /* Change this to your desired hover text color */
 }
 
 .custom-nav-links {
@@ -357,19 +376,25 @@ code {
 
 
 
-/* --------------------------------- 4. history page---------------------------------   */
+/* --------------------------------- 6. history page---------------------------------   */
 .title {
   margin: 30px auto 20px auto;
   font-weight: 900;
 }
 
 .title:after {
-  content: ""; /* This is necessary for the pseudo element to work. */
-  display: block; /* This will put the pseudo element on its own line. */
-  margin: 0 auto; /* This will center the border. */
-  width: 35px; /* length of border */
-  padding-top: 3px; /* This creates some space between the element and the border. */
-  border-bottom: 2px solid; /* This creates the border. Replace black with whatever color you want. */
+  content: "";
+  /* This is necessary for the pseudo element to work. */
+  display: block;
+  /* This will put the pseudo element on its own line. */
+  margin: 0 auto;
+  /* This will center the border. */
+  width: 35px;
+  /* length of border */
+  padding-top: 3px;
+  /* This creates some space between the element and the border. */
+  border-bottom: 2px solid;
+  /* This creates the border. Replace black with whatever color you want. */
 }
 
 .history-text {
@@ -415,6 +440,7 @@ code {
   background-color: rgb(113, 178, 248);
   color: black;
 }
+
 .cardio-title,
 .cardio-btn {
   background-color: var(--main-color);
@@ -430,11 +456,13 @@ code {
 .history-name {
   font-weight: bold;
   margin: 0 auto;
+  color: black;
 }
 
 .history-index {
   margin: 0 auto;
   font-size: 13px;
+  color: black;
 }
 
 .show-btn {
@@ -449,5 +477,62 @@ code {
 }
 
 
+/*.........................7. ErrorPage.css.......................... */
+
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  flex-direction: column; /* Stack elements vertically */
+  text-align: center; /* Center text within the container */
+}
+
+.error-text {
+  font-family: Arial, sans-serif;
+  margin-right: 20px;
+}
+
+h1 {
+  font-size: 4rem;
+  color: white;
+}
+
+p {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+.error-image img {
+  max-width: 30%; 
+  height: auto;
+  animation: floatImage 1s ease infinite alternate;
+}
+
+@keyframes floatImage {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.black-text {
+  color: black;
+}
 
 
+
+/* ..........................8. footer............. */
+.footer{
+  color: black;
+}

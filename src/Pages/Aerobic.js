@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import aerobicIcon from '../images/aerobic.png'; 
+import aerobicIcon from '../images/aerobic.png';
 import axios from 'axios';
 import CustomNavbar from '../components/CustomNavbar';
 
@@ -47,15 +47,16 @@ const Aerobic = () => {
             setMessage('');
           }, 3000);
         } else {
-          console.error('Something went wrong');
+          // console.error('Something went wrong');
           setMessage('Something else went wrong');
         }
       } catch (err) {
-        console.error(err);
+        // console.error(err);
         setMessage('Something catch went wrong');
       }
     }
 
+    //what are the title of data will create in form 
     setAerobicForm({
       name: '',
       heartRate: '',

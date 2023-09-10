@@ -8,6 +8,7 @@ import cardioIcon from '../images/cardio.png';
 import resistanceIcon from '../images/resistance.png';
 import aerobicIcon from '../images/aerobic.png';
 import ExerciseChart from './ExerciseChart';
+import Footer from './Footer';
 
 
 export default function History() {
@@ -23,25 +24,25 @@ export default function History() {
         const userData = response.data.data;
         if (userData.length > 0) {
           const fetchedUserId = userData[0]._id;
-          console.log('Fetched userId:', fetchedUserId);
+          // console.log('Fetched userId:', fetchedUserId);
 
           // Fetch aerobic exercise data
           axios
             .get(`http://localhost:5000/aerobic/getAerobic/${fetchedUserId}`)
             .then((exerciseResponseAerobic) => {
-              console.log('Aerobic Exercise Data:', exerciseResponseAerobic.data);
+              // console.log('Aerobic Exercise Data:', exerciseResponseAerobic.data);
 
               // Fetch cardio exercise data
               axios
                 .get(`http://localhost:5000/cardio/getCardio/${fetchedUserId}`)
                 .then((exerciseResponseCardio) => {
-                  console.log('Cardio Exercise Data:', exerciseResponseCardio.data);
+                  // console.log('Cardio Exercise Data:', exerciseResponseCardio.data);
 
                   // Fetch resistance exercise data
                   axios
                     .get(`http://localhost:5000/resistance/getResistance/${fetchedUserId}`)
                     .then((exerciseResponseResistance) => {
-                      console.log('Resistance Exercise Data:', exerciseResponseResistance.data);
+                      // console.log('Resistance Exercise Data:', exerciseResponseResistance.data);
 
                       // Extract data and ensure it's an array or an empty array if no data
                       const aerobicData = Array.isArray(exerciseResponseAerobic.data)
@@ -61,24 +62,24 @@ export default function History() {
                       setIsLoading(false);
                     })
                     .catch((error) => {
-                      console.error('Error fetching resistance data:', error);
+                      // console.error('Error fetching resistance data:', error);
                       setError(error);
                       setIsLoading(false);
                     });
                 })
                 .catch((error) => {
-                  console.error('Error fetching cardio data:', error);
+                  // console.error('Error fetching cardio data:', error);
                   setError(error);
                   setIsLoading(false);
                 });
             })
             .catch((error) => {
-              console.error('Error fetching aerobic data:', error);
+              // console.error('Error fetching aerobic data:', error);
               setError(error);
               setIsLoading(false);
             });
         } else {
-          console.error('No user data found.');
+          // console.error('No user data found.');
           setIsLoading(false);
         }
       })
@@ -170,6 +171,7 @@ export default function History() {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

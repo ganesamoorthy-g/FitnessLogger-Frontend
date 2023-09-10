@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import CustomNavbar from '../components/CustomNavbar';
-import aerobicIcon from '../images/aerobic.png'; 
+import aerobicIcon from '../images/aerobic.png';
 import cardioIcon from '../images/cardio.png';
 import resistanceIcon from '../images/resistance.png';
 import axios from 'axios';
@@ -41,10 +41,10 @@ export default function SingleExercise() {
             type === 'aerobic'
               ? `http://localhost:5000/aerobic/getAerobic/${fetchedUserId}`
               : type === 'cardio'
-              ? `http://localhost:5000/cardio/getCardio/${fetchedUserId}`
-              : type === 'resistance'
-              ? `http://localhost:5000/resistance/getResistance/${fetchedUserId}`
-              : null;
+                ? `http://localhost:5000/cardio/getCardio/${fetchedUserId}`
+                : type === 'resistance'
+                  ? `http://localhost:5000/resistance/getResistance/${fetchedUserId}`
+                  : null;
 
           if (apiEndpoint) {
             const exerciseResponse = await axios.get(apiEndpoint);
@@ -71,10 +71,10 @@ export default function SingleExercise() {
             }
           }
         } else {
-          console.error('No user data found.');
+          // console.error('No user data found.');
         }
       } catch (error) {
-        console.error('Error fetching data:', error);
+        // console.error('Error fetching data:', error);
       }
     };
 
@@ -87,23 +87,23 @@ export default function SingleExercise() {
         type === 'aerobic'
           ? `http://localhost:5000/aerobic/deleteAerobic/${id}`
           : type === 'cardio'
-          ? `http://localhost:5000/cardio/deleteCardio/${id}`
-          : type === 'resistance'
-          ? `http://localhost:5000/resistance/deleteResistance/${id}`
-          : null;
+            ? `http://localhost:5000/cardio/deleteCardio/${id}`
+            : type === 'resistance'
+              ? `http://localhost:5000/resistance/deleteResistance/${id}`
+              : null;
 
       if (apiEndpoint) {
         const response = await axios.delete(apiEndpoint);
 
         if (response.status === 200) {
-          console.log(`${type} exercise deleted successfully`);
+          // console.log(`${type} exercise deleted successfully`);
           navigate('/history');
         } else {
-          console.error(`Failed to delete ${type} exercise`);
+          // console.error(`Failed to delete ${type} exercise`);
         }
       }
     } catch (error) {
-      console.error(`Error deleting ${type} exercise:`, error);
+      // console.error(`Error deleting ${type} exercise:`, error);
     }
   };
 
@@ -117,10 +117,10 @@ export default function SingleExercise() {
         type === 'aerobic'
           ? `http://localhost:5000/aerobic/updateAerobic/${id}`
           : type === 'cardio'
-          ? `http://localhost:5000/cardio/updateCardio/${id}`
-          : type === 'resistance'
-          ? `http://localhost:5000/resistance/updateResistance/${id}`
-          : null;
+            ? `http://localhost:5000/cardio/updateCardio/${id}`
+            : type === 'resistance'
+              ? `http://localhost:5000/resistance/updateResistance/${id}`
+              : null;
 
       if (apiEndpoint) {
         const updatedExerciseData = {
@@ -141,7 +141,7 @@ export default function SingleExercise() {
         setIsEditing(false);
       }
     } catch (error) {
-      console.error(`Error updating ${type} exercise:`, error);
+      // console.error(`Error updating ${type} exercise:`, error);
     }
   };
 
@@ -154,14 +154,6 @@ export default function SingleExercise() {
           <div className="aerobic-div">
             {isEditing ? (
               <div>
-                <input
-                  type="number"
-                  placeholder="Duration (minutes)"
-                  value={editedExercise.duration}
-                  onChange={(e) =>
-                    setEditedExercise({ ...editedExercise, duration: e.target.value })
-                  }
-                />
                 <input
                   type="number"
                   placeholder="Heart Rate"

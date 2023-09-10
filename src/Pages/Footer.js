@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <p>&copy; {new Date().getFullYear()} Fitness Logger</p>
+        <h6>&copy; {new Date().getFullYear()} Fitness Logger</h6>
       </div>
     </footer>
   );

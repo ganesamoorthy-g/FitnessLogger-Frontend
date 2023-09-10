@@ -15,8 +15,8 @@ function Allexcercisepage() {
 
       <div className="exercise d-flex flex-column align-items-center">
         <h2 className='title'>Add Exercise</h2>
-        <div className="d-flex justify-content-center"> {/* Use flexbox for horizontal alignment */}
-        <div className="mx-3">
+        <div className="d-flex justify-content-center">
+          <div className="mx-3">
             <button className='aerobic-btn d-flex flex-column align-items-center justify-content-center' onClick={() => navigate("/exercise/aerobic")}>
               <img alt="aerobic" src={aerobicIcon} className="exercise-icon" />
               Aerobic
@@ -34,10 +34,9 @@ function Allexcercisepage() {
               Resistance
             </button>
           </div>
-          {/* Add more buttons/icons as needed */}
+
         </div>
       </div>
-
       <Footer />
     </div>
   );
