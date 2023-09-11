@@ -23,7 +23,7 @@ const LoginSignupPage = () => {
         });
         const responseData = response.data;
 
-        if (responseData.message === 'login success') {
+        if (responseData.message === 'Login success') {
           // Handle successful login
           alert('Logged in successfully');
   

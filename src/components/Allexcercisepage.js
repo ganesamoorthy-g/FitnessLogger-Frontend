@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import CustomNavbar from './CustomNavbar';
 import Footer from '../Pages/Footer';
 import cardioIcon from '../images/cardio.png';

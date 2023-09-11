@@ -31,7 +31,7 @@ const Cardio = () => {
     event.preventDefault();
 
     // Replace 'userId' with the actual authenticated user's ID
-    const userId = '64f6ca0ce46c222e4284c443';
+    const userId = '64fe0a11da47448417790b1c';
 
     const dataToSend = {
       ...cardioForm,
