@@ -7,7 +7,7 @@ import axios from 'axios';
 import cardioIcon from '../images/cardio.png';
 import resistanceIcon from '../images/resistance.png';
 import aerobicIcon from '../images/aerobic.png';
-import ExerciseChart from './ExerciseChart';
+
 import Footer from './Footer';
 
 
@@ -107,7 +107,7 @@ export default function History() {
       <div className="d-flex flex-column align-items-center">
         <h2 className="title">History</h2>
 
-        <ExerciseChart exerciseData={exerciseData} />
+    
 
         <div className="history-data">
           {exerciseData.length > 0 ? (
