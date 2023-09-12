@@ -17,7 +17,7 @@ const LoginSignupPage = () => {
     try {
       if (isLogin) {
         // Perform login logic
-        const response = await axios.post('http://localhost:5000/auth/login', {
+        const response = await axios.post('https://fitnesslogger-backend.onrender.com/auth/login', {
           email,
           password,
         });
@@ -34,7 +34,7 @@ const LoginSignupPage = () => {
         }
       } else {
         // Perform signup logic
-        const response = await axios.post('http://localhost:5000/auth/register', {
+        const response = await axios.post('https://fitnesslogger-backend.onrender.com/auth/register', {
           email,
           password,
           username, // Add username to the signup data

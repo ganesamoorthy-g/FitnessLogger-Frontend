@@ -19,7 +19,7 @@ export default function History() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/users/userId`)
+      .get(`https://fitnesslogger-backend.onrender.com/users/userId`)
       .then((response) => {
         const userData = response.data.data;
         if (userData.length > 0) {
@@ -28,19 +28,19 @@ export default function History() {
 
           // Fetch aerobic exercise data
           axios
-            .get(`http://localhost:5000/aerobic/getAerobic/${fetchedUserId}`)
+            .get(`https://fitnesslogger-backend.onrender.com/aerobic/getAerobic/${fetchedUserId}`)
             .then((exerciseResponseAerobic) => {
               // console.log('Aerobic Exercise Data:', exerciseResponseAerobic.data);
 
               // Fetch cardio exercise data
               axios
-                .get(`http://localhost:5000/cardio/getCardio/${fetchedUserId}`)
+                .get(`https://fitnesslogger-backend.onrender.com/cardio/getCardio/${fetchedUserId}`)
                 .then((exerciseResponseCardio) => {
                   // console.log('Cardio Exercise Data:', exerciseResponseCardio.data);
 
                   // Fetch resistance exercise data
                   axios
-                    .get(`http://localhost:5000/resistance/getResistance/${fetchedUserId}`)
+                    .get(`https://fitnesslogger-backend.onrender.com/resistance/getResistance/${fetchedUserId}`)
                     .then((exerciseResponseResistance) => {
                       // console.log('Resistance Exercise Data:', exerciseResponseResistance.data);
 

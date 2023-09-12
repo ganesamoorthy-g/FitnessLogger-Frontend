@@ -40,7 +40,7 @@ const Aerobic = () => {
 
     if (validateForm(aerobicForm)) {
       try {
-        const response = await axios.post('http://localhost:5000/aerobic/createAerobic', dataToSend);
+        const response = await axios.post('https://fitnesslogger-backend.onrender.com/aerobic/createAerobic', dataToSend);
         if (response.status === 200) {
           setMessage('Aerobic exercise successfully added');
           setTimeout(() => {

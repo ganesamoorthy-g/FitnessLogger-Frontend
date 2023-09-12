@@ -41,7 +41,7 @@ const Resistance = () => {
 
     if (validateForm(resistanceForm)) {
       try {
-        const response = await axios.post('http://localhost:5000/resistance/createResistance', dataToSend);
+        const response = await axios.post('https://fitnesslogger-backend.onrender.com/resistance/createResistance', dataToSend);
         if (response.status === 200) {
           setMessage('Resistance exercise successfully added');
           setTimeout(() => {

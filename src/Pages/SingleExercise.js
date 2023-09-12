@@ -31,7 +31,7 @@ export default function SingleExercise() {
   useEffect(() => {
     const fetchExerciseData = async () => {
       try {
-        const userResponse = await axios.get(`http://localhost:5000/users/userId`);
+        const userResponse = await axios.get(`https://fitnesslogger-backend.onrender.com/users/userId`);
         const userData = userResponse.data.data;
 
         if (userData.length > 0) {
@@ -39,11 +39,11 @@ export default function SingleExercise() {
 
           const apiEndpoint =
             type === 'aerobic'
-              ? `http://localhost:5000/aerobic/getAerobic/${fetchedUserId}`
+              ? `https://fitnesslogger-backend.onrender.com/aerobic/getAerobic/${fetchedUserId}`
               : type === 'cardio'
-                ? `http://localhost:5000/cardio/getCardio/${fetchedUserId}`
+                ? `https://fitnesslogger-backend.onrender.com/cardio/getCardio/${fetchedUserId}`
                 : type === 'resistance'
-                  ? `http://localhost:5000/resistance/getResistance/${fetchedUserId}`
+                  ? `https://fitnesslogger-backend.onrender.com/resistance/getResistance/${fetchedUserId}`
                   : null;
 
           if (apiEndpoint) {
@@ -85,11 +85,11 @@ export default function SingleExercise() {
     try {
       const apiEndpoint =
         type === 'aerobic'
-          ? `http://localhost:5000/aerobic/deleteAerobic/${id}`
+          ? `https://fitnesslogger-backend.onrender.com/aerobic/deleteAerobic/${id}`
           : type === 'cardio'
-            ? `http://localhost:5000/cardio/deleteCardio/${id}`
+            ? `https://fitnesslogger-backend.onrender.com/cardio/deleteCardio/${id}`
             : type === 'resistance'
-              ? `http://localhost:5000/resistance/deleteResistance/${id}`
+              ? `https://fitnesslogger-backend.onrender.com/resistance/deleteResistance/${id}`
               : null;
 
       if (apiEndpoint) {
@@ -115,11 +115,11 @@ export default function SingleExercise() {
     try {
       const apiEndpoint =
         type === 'aerobic'
-          ? `http://localhost:5000/aerobic/updateAerobic/${id}`
+          ? `https://fitnesslogger-backend.onrender.com/aerobic/updateAerobic/${id}`
           : type === 'cardio'
-            ? `http://localhost:5000/cardio/updateCardio/${id}`
+            ? `https://fitnesslogger-backend.onrender.com/cardio/updateCardio/${id}`
             : type === 'resistance'
-              ? `http://localhost:5000/resistance/updateResistance/${id}`
+              ? `https://fitnesslogger-backend.onrender.com/resistance/updateResistance/${id}`
               : null;
 
       if (apiEndpoint) {

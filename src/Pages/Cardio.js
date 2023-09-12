@@ -40,7 +40,7 @@ const Cardio = () => {
 
     if (validateForm(cardioForm)) {
       try {
-        const response = await axios.post('http://localhost:5000/cardio/createCardio', dataToSend);
+        const response = await axios.post('https://fitnesslogger-backend.onrender.com/cardio/createCardio', dataToSend);
         if (response.status === 200) {
           setMessage('Cardio successfully added');
           setTimeout(() => {
