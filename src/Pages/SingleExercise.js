@@ -11,7 +11,7 @@ function formatDate(dateString) {
   return new Date(dateString).toLocaleDateString(undefined, options);
 }
 
-export default function SingleExercise() {
+export default function SingleExercise({user}) {
   const { id, type } = useParams();
   const [exerciseData, setExerciseData] = useState({});
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export default function SingleExercise() {
         const userData = userResponse.data.data;
 
         if (userData.length > 0) {
-          const fetchedUserId = userData[0]._id;
+          const fetchedUserId = user._id;
 
           const apiEndpoint =
             type === 'aerobic'
@@ -79,7 +79,7 @@ export default function SingleExercise() {
     };
 
     fetchExerciseData(); // Call the fetchExerciseData function
-  }, [type, id]);
+  }, [type, id,user._id]);
 
   const handleDeleteExercise = async () => {
     try {
@@ -97,7 +97,7 @@ export default function SingleExercise() {
 
         if (response.status === 200) {
           // console.log(`${type} exercise deleted successfully`);
-          navigate('/history');
+          navigate('/history/:userId');
         } else {
           // console.error(`Failed to delete ${type} exercise`);
         }

@@ -4,12 +4,17 @@ import axios from 'axios';
 import ForgotPassword from './ForgotPassword';
 import './Login.css';
 
-const LoginSignupPage = () => {
+const LoginSignupPage = ({setUser}) => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const navigate = useNavigate();
+  // const [user, setUser] = useState(null); // Add user state
+
+  const handleSuccessfulLogin = (userData) => {
+    setUser(userData); // Set the user state when login is successful
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,17 +22,18 @@ const LoginSignupPage = () => {
     try {
       if (isLogin) {
         // Perform login logic
-        const response = await axios.post('https://fitnesslogger-backend.onrender.com/auth/login', {
+        const response = await axios.post('http://localhost:5000/auth/login', {
           email,
           password,
         });
         const responseData = response.data;
+        console.log(responseData.user._id)
+        
 
         if (responseData.message === 'Login success') {
           // Handle successful login
           alert('Logged in successfully');
-  
-          // Redirect to the "allexcercisepage" after successful login
+          handleSuccessfulLogin(responseData.user); // Set user data when logged in
           navigate('/allexcercisepage');
         } else {
           alert('Login failed: ' + responseData.message);
@@ -37,12 +43,11 @@ const LoginSignupPage = () => {
         const response = await axios.post('https://fitnesslogger-backend.onrender.com/auth/register', {
           email,
           password,
-          username, // Add username to the signup data
+          username,
         });
         const responseData = response.data;
 
         if (responseData.message === 'Successfully registered') {
-          // Handle successful signup
           alert('Registered successfully');
         } else {
           alert('Registration failed: ' + responseData.message);
@@ -57,7 +62,7 @@ const LoginSignupPage = () => {
   return (
     <div className="login-signup-container">
       <div className="form-container">
-      <h1 className="login-head-title">
+        <h1 className="login-head-title">
           <i className="fa-sharp fa-solid fa-heart-circle-bolt"></i>Fitness Logger
         </h1>
         <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
@@ -91,10 +96,10 @@ const LoginSignupPage = () => {
           {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Log in'}
         </p>
         <Link to="/forgot-password">Forgot Password?</Link>
-       
+
         <div className="google-icon">
-  <i className="fab fa-google"></i> <strong>Sign in with Google</strong>
-</div>
+          <i className="fab fa-google"></i> <strong>Sign in with Google</strong>
+        </div>
 
         <Routes>
           <Route path="/forgot-password" element={<ForgotPassword />} />

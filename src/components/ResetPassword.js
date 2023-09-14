@@ -13,7 +13,9 @@ function ResetPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     //Backend Api for JWT token generate process
-    const response = await axios.post(`https://fitnesslogger-backend.onrender.com/auth/reset-password?id=${state.get("id")}&token=${state.get("token")}`, {
+   
+    
+     const response = await axios.post(`https://fitnesslogger-backend.onrender.com/auth/reset-password?id=${state.get("id")}&token=${state.get("token")}`, {
       password,
     });
 

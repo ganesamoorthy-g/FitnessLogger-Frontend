@@ -5,12 +5,14 @@ import aerobicIcon from '../images/aerobic.png';
 import axios from 'axios';
 import CustomNavbar from '../components/CustomNavbar';
 
-const Aerobic = () => {
+const Aerobic = ({ user }) => {
+  // console.log(user)
   const [aerobicForm, setAerobicForm] = useState({
     name: '',
-    heartRate: '',
+    duration: '',
     caloriesBurned: '',
     date: new Date(),
+    heartRate: '', // Add the heartRate field
   });
   const [message, setMessage] = useState('');
 
@@ -24,14 +26,19 @@ const Aerobic = () => {
   };
 
   const validateForm = (form) => {
-    return form.name && form.heartRate && form.caloriesBurned && form.date;
+    return (
+      form.name &&
+      form.duration &&
+      form.caloriesBurned &&
+      form.date &&
+      form.heartRate // Make sure heartRate is included in validation
+    );
   };
 
   const handleAerobicSubmit = async (event) => {
     event.preventDefault();
 
-    // Replace 'userId' with the actual authenticated user's ID
-    const userId = '64fe0a11da47448417790b1c';
+    const userId = user ? user._id : null;
 
     const dataToSend = {
       ...aerobicForm,
@@ -41,27 +48,28 @@ const Aerobic = () => {
     if (validateForm(aerobicForm)) {
       try {
         const response = await axios.post('https://fitnesslogger-backend.onrender.com/aerobic/createAerobic', dataToSend);
+
         if (response.status === 200) {
           setMessage('Aerobic exercise successfully added');
           setTimeout(() => {
             setMessage('');
           }, 3000);
         } else {
-          // console.error('Something went wrong');
           setMessage('Something else went wrong');
         }
       } catch (err) {
-        // console.error(err);
-        setMessage('Something catch went wrong');
+        setMessage('Something went wrong');
       }
+    } else {
+      setMessage('Please fill in all required fields.');
     }
 
-    //what are the title of data will create in form 
     setAerobicForm({
       name: '',
-      heartRate: '',
+      duration: '',
       caloriesBurned: '',
       date: new Date(),
+      heartRate: '', // Reset heartRate field
     });
   };
 
@@ -83,13 +91,13 @@ const Aerobic = () => {
             value={aerobicForm.name}
             onChange={handleAerobicChange}
           />
-          <label>Heart Rate:</label>
+          <label>Duration (minutes):</label>
           <input
             type="number"
-            name="heartRate"
-            id="heartRate"
+            name="duration"
+            id="duration"
             placeholder="0"
-            value={aerobicForm.heartRate}
+            value={aerobicForm.duration}
             onChange={handleAerobicChange}
           />
           <label>Calories Burned:</label>
@@ -99,6 +107,15 @@ const Aerobic = () => {
             id="caloriesBurned"
             placeholder="0"
             value={aerobicForm.caloriesBurned}
+            onChange={handleAerobicChange}
+          />
+          <label>Heart Rate:</label>
+          <input
+            type="number"
+            name="heartRate"
+            id="heartRate"
+            placeholder="0"
+            value={aerobicForm.heartRate}
             onChange={handleAerobicChange}
           />
           <label>Date:</label>

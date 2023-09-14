@@ -12,6 +12,7 @@ function ForgotPassword() {
     axios
     //Backend Api 
       .post('https://fitnesslogger-backend.onrender.com/auth/forgot-password', { email })
+    
       .then((res) => {
         if (res.data.status === 'Password reset link sent successfully') {
           navigate('/reset-password');

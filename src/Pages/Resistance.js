@@ -5,7 +5,7 @@ import resistanceIcon from '../images/resistance.png'; // Replace with the actua
 import axios from 'axios';
 import CustomNavbar from '../components/CustomNavbar';
 
-const Resistance = () => {
+const Resistance = ({ user }) => {
   const [resistanceForm, setResistanceForm] = useState({
     name: '',
     weight: '',
@@ -31,8 +31,7 @@ const Resistance = () => {
   const handleResistanceSubmit = async (event) => {
     event.preventDefault();
 
-    // Replace 'userId' with the actual authenticated user's ID
-    const userId = '64fe0a11da47448417790b1c';
+    const userId = user ? user._id : null;
 
     const dataToSend = {
       ...resistanceForm,
@@ -41,6 +40,7 @@ const Resistance = () => {
 
     if (validateForm(resistanceForm)) {
       try {
+        
         const response = await axios.post('https://fitnesslogger-backend.onrender.com/resistance/createResistance', dataToSend);
         if (response.status === 200) {
           setMessage('Resistance exercise successfully added');
@@ -48,13 +48,13 @@ const Resistance = () => {
             setMessage('');
           }, 3000);
         } else {
-          // console.error('Something went wrong');
           setMessage('Something else went wrong');
         }
       } catch (err) {
-        // console.error(err);
-        setMessage('Something catch went wrong');
+        setMessage('Something went wrong');
       }
+    } else {
+      setMessage('Please fill in all required fields.');
     }
 
     setResistanceForm({

@@ -5,7 +5,7 @@ import cardioIcon from '../images/cardio.png';
 import axios from 'axios';
 import CustomNavbar from '../components/CustomNavbar';
 
-const Cardio = () => {
+const Cardio = ({ user }) => {
   const [cardioForm, setCardioForm] = useState({
     name: '',
     distance: '',
@@ -30,8 +30,7 @@ const Cardio = () => {
   const handleCardioSubmit = async (event) => {
     event.preventDefault();
 
-    // Replace 'userId' with the actual authenticated user's ID
-    const userId = '64fe0a11da47448417790b1c';
+    const userId = user ? user._id : null;
 
     const dataToSend = {
       ...cardioForm,
@@ -41,21 +40,22 @@ const Cardio = () => {
     if (validateForm(cardioForm)) {
       try {
         const response = await axios.post('https://fitnesslogger-backend.onrender.com/cardio/createCardio', dataToSend);
+
         if (response.status === 200) {
-          setMessage('Cardio successfully added');
+          setMessage('Cardio exercise successfully added');
           setTimeout(() => {
             setMessage('');
           }, 3000);
         } else {
-          // console.error('Something went wrong');
           setMessage('Something else went wrong');
         }
       } catch (err) {
-        // console.error(err);
-        setMessage('Something catch went wrong');
+        setMessage('Something went wrong');
       }
+    } else {
+      setMessage('Please fill in all required fields.');
     }
-//what are the title of data will create in form 
+
     setCardioForm({
       name: '',
       distance: '',
@@ -66,7 +66,7 @@ const Cardio = () => {
 
   return (
     <div className="cardio">
-     <CustomNavbar />
+      <CustomNavbar />
       <div className="d-flex flex-column align-items-center">
         <h2 className="title text-center">Add Cardio Exercise</h2>
         <form className="cardio-form d-flex flex-column" onSubmit={handleCardioSubmit}>
