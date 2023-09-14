@@ -19,13 +19,13 @@ export default function History({ user }) {
     const fetchExerciseData = async () => {
       try {
         const aerobicResponse = await axios.get(`https://fitnesslogger-backend.onrender.com/aerobic/getAerobic/${userId}`);
-        console.log('Aerobic Exercise Data:', aerobicResponse.data);
+        // console.log('Aerobic Exercise Data:', aerobicResponse.data);
 
         const resistanceResponse = await axios.get(`https://fitnesslogger-backend.onrender.com/resistance/getResistance/${userId}`);
-        console.log('Resistance Exercise Data:', resistanceResponse.data);
+        // console.log('Resistance Exercise Data:', resistanceResponse.data);
 
         const cardioResponse = await axios.get(`https://fitnesslogger-backend.onrender.com/cardio/getCardio/${userId}`);
-        console.log('Cardio Exercise Data:', cardioResponse.data);
+        // console.log('Cardio Exercise Data:', cardioResponse.data);
 
         const combinedExerciseData = [
           ...(aerobicResponse.data || []),

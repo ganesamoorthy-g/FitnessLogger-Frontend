@@ -22,12 +22,12 @@ const LoginSignupPage = ({setUser}) => {
     try {
       if (isLogin) {
         // Perform login logic
-        const response = await axios.post('http://localhost:5000/auth/login', {
+        const response = await axios.post('https://fitnesslogger-backend.onrender.com/auth/login', {
           email,
           password,
         });
         const responseData = response.data;
-        console.log(responseData.user._id)
+        // console.log(responseData.user._id)
         
 
         if (responseData.message === 'Login success') {

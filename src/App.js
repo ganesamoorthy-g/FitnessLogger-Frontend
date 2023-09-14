@@ -16,7 +16,7 @@ import LoginSignupPage from './components/LoginSignupPage';
 
 function App() {
   const [user, setUser] = useState(null);
-  console.log(user);
+  // console.log(user);
 
   return (
     <div className="app-container">
