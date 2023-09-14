@@ -140,6 +140,16 @@ code {
   margin-bottom: 20px;
 }
 
+.allexcercise-page {
+  height: 100vh;
+  background-image: url('./images/all.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Optional - this will make the background image fixed while scrolling */
+  /* You can add additional styles as needed */
+}
+
 
 /* Add this rule to style all text elements within the component */
 /* .single-aerobic *,
@@ -475,6 +485,19 @@ code {
 .show-btn:hover {
   font-weight: bold;
 }
+.history-page {
+  height: 100vh;
+  background-image: url('./images/all2.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Optional - this will make the background image fixed while scrolling */
+  /* You can add additional styles as needed */
+}
+
+
+
+
 
 
 /*.........................7. ErrorPage.css.......................... */
@@ -527,12 +550,12 @@ a {
 }
 
 .black-text {
-  color: black;
+  color: white;
 }
 
 
 
 /* ..........................8. footer............. */
 .footer{
-  color: black;
+  color: white;
 }

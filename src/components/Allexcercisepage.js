@@ -11,9 +11,11 @@ function Allexcercisepage() {
 
   return (
     <div>
+     <div className="allexcercise-page">
       <CustomNavbar />
-
+     
       <div className="exercise d-flex flex-column align-items-center">
+      
         <h2 className='title'>Add Exercise</h2>
         <div className="d-flex justify-content-center">
           <div className="mx-3">
@@ -38,6 +40,7 @@ function Allexcercisepage() {
         </div>
       </div>
       <Footer />
+    </div>
     </div>
   );
 }

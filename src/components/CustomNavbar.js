@@ -9,7 +9,8 @@ function CustomNavbar({ user }) {
 
   return (
     <Navbar bg="transparent" variant="transparent" className="custom-navbar sticky-top">
-      <Navbar.Brand>Fitness Logger</Navbar.Brand>
+      <Navbar.Brand style={{ color: 'white' }}>Fitness Logger</Navbar.Brand>
+
       <Nav className="ml-auto custom-nav-links">
         <Link to="/allexcercisepage" className="nav-link">Add Exercise</Link>
         <Link to={`/history/${userId}`} className="nav-link">History</Link>

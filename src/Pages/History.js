@@ -5,6 +5,7 @@ import axios from 'axios';
 import cardioIcon from '../images/cardio.png';
 import resistanceIcon from '../images/resistance.png';
 import aerobicIcon from '../images/aerobic.png';
+import Footer from './Footer';
 
 export default function History({ user }) {
   const userId = user._id;
@@ -58,8 +59,11 @@ export default function History({ user }) {
   }
 
   return (
+    
     <div className="history">
-      <CustomNavbar />
+    <div className="history-page">
+     <CustomNavbar style={{ color: 'blue' }} />
+
       <div className="d-flex flex-column align-items-center">
         <h2 className="title">History</h2>
         {exerciseData.length ? (
@@ -120,8 +124,13 @@ export default function History({ user }) {
               <button className="home-btn">Add Exercise</button>
             </Link>
           </div>
+          
         )}
+        <Footer />
       </div>
+     
+      </div>
+      
     </div>
   );
 }
